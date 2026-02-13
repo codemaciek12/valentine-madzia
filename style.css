@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffb6d9, #ffd6ec);
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.main-image {
+    width: 420px;
+    max-width: 90vw;
+    height: auto;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.4);
+    margin-bottom: 25px;
+    opacity: 1;
+    transition: opacity 0.45s ease, transform 0.35s ease;
+}
+
+
+.main-image:hover {
+    transform: scale(1.05);
+}
+
+.title {
+    font-family: 'Great Vibes', cursive; /* romantyczna czcionka */
+    font-size: 3.2rem; /* trochę większa, bo font jest delikatny */
+    color: #ff2e88;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    text-shadow: 0 4px 15px rgba(255, 105, 180, 0.3); /* miękka poświata */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+
+
+.buttons {
+    display: flex;
+    justify-content: center; /* dokładne wyśrodkowanie */
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+/* Wspólne style przycisków */
+.btn {
+    padding: 15px 35px;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.2s ease, left 0.35s ease, top 0.35s ease, background 0.2s ease;
+    font-weight: bold;
+    min-width: 160px; /* KLUCZOWE – zapobiega kurczeniu */
+    text-align: center;
+    white-space: nowrap; /* tekst nie łamie się */
+}
+
+.yes-btn {
+    background-color: #ff4da6;
+    color: white;
+}
+
+.yes-btn:hover {
+    background-color: #ff1f8b;
+    transform: scale(1.08);
+}
+
+.no-btn {
+    background-color: #ffffff;
+    color: #ff4da6;
+    border: 2px solid #ff4da6;
+    z-index: 10;
+    min-width: 170px;
+    white-space: nowrap;
+    transition: left 0.35s ease, top 0.35s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+
+
+.no-btn:hover {
+    background-color: #ffe6f2;
+}
+
+
+.response-text {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #d6006c;
+    font-weight: bold;
+}
+
+/* Flying hearts */
+.heart {
+    position: fixed;
+    bottom: -80px;
+    font-size: 48px; /* było 24px → teraz duże serca */
+    animation: floatUp 5s linear forwards;
+    opacity: 0.95;
+    z-index: 9999; /* dodatkowe zabezpieczenie */
+    will-change: transform;
+}
+
+
+.fade-out {
+    opacity: 0;
+    transform: scale(0.98);
+}
+
+
+/* Kontener serc – nad całym UI */
+#hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* nie blokuje kliknięć */
+    z-index: 9999; /* NAJWAŻNIEJSZE – nad obrazkiem i wszystkim */
+}
+
+/* 🎀 Hello Kitty w rogu (responsywna) */
+/* 🎀 Wrapper – odpowiada za pozycję i animację */
+.hello-kitty-wrapper {
+    position: fixed;
+    bottom: 0px;  /* stabilna pozycja względem ekranu */
+    right: 20px;
+    z-index: 9998;
+    pointer-events: none;
+    
+    animation: kittyFloat 3s ease-in-out infinite;
+}
+
+/* Sam GIF – bez animacji pozycji */
+.hello-kitty {
+    width: 140px;
+    height: auto;
+    display: block; /* usuwa dziwne przesunięcia inline */
+}
+
+/* Delikatne unoszenie (płynne i stabilne) */
+@keyframes kittyFloat {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+
+
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.9) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-120vh) scale(1.4) rotate(15deg);
+        opacity: 0;
+    }
+}
+
+
+/* 📱 Mobile responsiveness */
+@media (max-width: 600px) {
+    .title {
+        font-size: 2.4rem; /* większe, bo odręczne fonty są cieńsze */
+        padding: 0 10px;
+    }
+
+    .btn {
+        font-size: 1.1rem;
+        padding: 12px 25px;
+    }
+
+    .main-image {
+        width: 75vw;
+        max-width: 320px;
+    }
+
+    .hello-kitty-wrapper {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .hello-kitty {
+        width: 90px; /* mniejsza na telefonie */
+    }
+}
+
+
+
