@@ -16,7 +16,7 @@ body {
     z-index: 2;
     max-width: 900px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 20px 120px 20px; /* KLUCZ – zapas na dole */
     height: 100vh;
     
     display: flex;
@@ -24,7 +24,10 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+
+    transform: translateY(-40px); /* podnosi CAŁY UI wyżej */
 }
+
 
 .main-image {
     width: 340px; /* było 420px – mniejszy na wszystkich urządzeniach */
@@ -32,7 +35,7 @@ body {
     height: auto;
     border-radius: 24px;
     box-shadow: 0 15px 35px rgba(255, 105, 180, 0.4);
-    margin-bottom: 15px; /* było 25px – mniej miejsca = wyższe przyciski */
+    margin-bottom: 10px; /* było 25px – mniej miejsca = wyższe przyciski */
     opacity: 1;
     transition: opacity 0.45s ease, transform 0.35s ease;
 }
