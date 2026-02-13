@@ -27,15 +27,16 @@ body {
 }
 
 .main-image {
-    width: 420px;
-    max-width: 90vw;
+    width: 340px; /* było 420px – mniejszy na wszystkich urządzeniach */
+    max-width: 85vw; /* trochę mniej niż 90vw */
     height: auto;
     border-radius: 24px;
     box-shadow: 0 15px 35px rgba(255, 105, 180, 0.4);
-    margin-bottom: 25px;
+    margin-bottom: 15px; /* było 25px – mniej miejsca = wyższe przyciski */
     opacity: 1;
     transition: opacity 0.45s ease, transform 0.35s ease;
 }
+
 
 
 .main-image:hover {
@@ -43,26 +44,28 @@ body {
 }
 
 .title {
-    font-family: 'Great Vibes', cursive; /* romantyczna czcionka */
-    font-size: 3.2rem; /* trochę większa, bo font jest delikatny */
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.2rem;
     color: #ff2e88;
-    margin-bottom: 30px;
+    margin-bottom: 15px; /* było 30px – ogromny wpływ na pozycję przycisków */
     letter-spacing: 1px;
     line-height: 1.2;
-    text-shadow: 0 4px 15px rgba(255, 105, 180, 0.3); /* miękka poświata */
+    text-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 
 
+
 .buttons {
     display: flex;
-    justify-content: center; /* dokładne wyśrodkowanie */
+    justify-content: center;
     align-items: center;
     gap: 20px;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 5px; /* było 20px – przyciski wyżej */
 }
+
 
 
 /* Wspólne style przycisków */
