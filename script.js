@@ -28,23 +28,27 @@ const noImages = [
 let noClickCount = 0;
 
 function changeImageSmooth(newSrc) {
-    // Jeśli kliknięcia są szybkie, anuluj poprzednie animacje
-    mainImage.classList.remove("fade-out");
+    // Jeśli klikamy szybko, anuluj poprzednie animacje
+    mainImage.style.transition = "opacity 0.3s ease, transform 0.3s ease";
 
-    // Wymuś restart animacji (klucz do płynności za każdym razem)
-    void mainImage.offsetWidth;
+    // FADE OUT (zanikanie starego obrazu)
+    mainImage.style.opacity = "0";
+    mainImage.style.transform = "scale(0.98)";
 
-    // Fade out
-    mainImage.classList.add("fade-out");
-
-    // Po zakończeniu fade-out zmień obraz
     setTimeout(() => {
+        // Zmiana obrazka DOPIERO po zaniknięciu
         mainImage.src = newSrc;
 
-        // Usuń fade-out, żeby obraz wrócił płynnie
-        mainImage.classList.remove("fade-out");
-    }, 220);
+        // Małe opóźnienie, żeby przeglądarka zarejestrowała nowy obraz
+        setTimeout(() => {
+            // FADE IN (płynne pojawienie się nowego obrazu)
+            mainImage.style.opacity = "1";
+            mainImage.style.transform = "scale(1)";
+        }, 50);
+
+    }, 300); // musi być równe czasowi fade-out
 }
+
 
 
 
